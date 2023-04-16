@@ -26,7 +26,7 @@ export const TextWrap = styled(motion.div)`
   text-align: center;
 
   h1 {
-    color: white;
+    color: ${(props) => props.theme.colors.white};
     font-size: 10rem;
     line-height: 1.1;
     font-family: serif;

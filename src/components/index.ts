@@ -9,5 +9,4 @@ export { default as Interviews } from './Interviews';
 export { default as LoadingAnimation } from './LoadingAnimation';
 export { default as Navigation } from './Navigation';
 export { default as SEO } from './SEO';
-export { default as Tile } from './Tile';
 export { default as Whiteout } from './Whiteout';
