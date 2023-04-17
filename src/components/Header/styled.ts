@@ -95,25 +95,13 @@ export const Nav = styled.nav`
 `;
 
 export const HamburgerMenu = styled.div`
-  display: flex;
-  height: 56px;
-  width: 56px;
-  border-radius: 100%;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transition: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
   cursor: pointer;
-  button {
-    background: transparent;
-    border: none;
-    padding: 0;
-    margin-right: 0;
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    button {
-      margin: 0;
-    }
+  display: block;
+  span {
+    height: 3px;
+    width: 30px;
+    margin: 6px;
+    display: block;
+    background: ${(props) => props.theme.colors.white};
   }
 `;

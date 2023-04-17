@@ -9,7 +9,7 @@ const GlobalStyles = styled.createGlobalStyle`
   html,
   body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: serif;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -144,6 +144,73 @@ const GlobalStyles = styled.createGlobalStyle`
       object-fit: cover;
       margin: 0 auto;
     }
+  }
+
+  /* Hamburger Menu */
+  ul {
+    margin: 0;
+    padding: 0;
+    span {
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      display: block;
+      letter-spacing: 0.05rem;
+    }
+    .columns {
+      display: flex;
+      .column {
+        &:first-child {
+          margin-right: 2rem;
+          @media (max-width: 680px) {
+            margin-right: 8rem;
+          }
+        }
+      }
+    }
+    li {
+      list-style: none;
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: ${(props) => props.theme.colors.black};
+      margin-bottom: 0.5rem;
+      @media (max-width: 680px) {
+        margin-bottom: 0.75rem;
+      }
+      a {
+        color: ${(props) => props.theme.colors.black};
+      }
+      &.disabled {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .container {
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    width: auto;
+    @media (min-width: 1024px) {
+      max-width: 960px;
+    }
+    @media (min-width: 1216px) {
+      max-width: 1152px;
+    }
+    @media (min-width: 1480px) {
+      max-width: 1244px;
+    }
+    &.fluid {
+      padding: 0;
+      margin: 0;
+      max-width: 100% !important;
+    }
+  }
+
+  .body-lock {
+    overflow-y: hidden;
   }
 
   .cursor {

@@ -10,9 +10,18 @@ import { Container, HamburgerMenu, HeaderInner, Logo, Nav } from './styled';
 type HeaderProps = {
   showWhiteout: any;
   setShowWhiteout: any;
+  menuState: any;
+  setMenuState: any;
+  setCursorHovered: any;
 };
 
-const Header = ({ showWhiteout, setShowWhiteout }: HeaderProps) => {
+const Header = ({
+  showWhiteout,
+  setShowWhiteout,
+  menuState,
+  setMenuState,
+  setCursorHovered,
+}: HeaderProps) => {
   const { isEnglish, toggleLanguage } = useContext(LanguageContext);
 
   const handleLanguageToggle = () => {
@@ -51,10 +60,14 @@ const Header = ({ showWhiteout, setShowWhiteout }: HeaderProps) => {
           <Link to='/'>{isEnglish ? 'Together We Heal' : 'Ser Reflejo'}</Link>
         </Logo>
 
-        <HamburgerMenu>
-          <button onClick={handleLanguageToggle}>
-            {isEnglish ? 'ES' : 'EN'}
-          </button>
+        <HamburgerMenu
+          onClick={() => setMenuState(!menuState)}
+          className='hamburger-menu'
+          onMouseEnter={() => setCursorHovered(true)}
+          onMouseLeave={() => setCursorHovered(false)}
+        >
+          <span></span>
+          <span></span>
         </HamburgerMenu>
       </HeaderInner>
     </Container>

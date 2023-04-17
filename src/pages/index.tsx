@@ -1,7 +1,7 @@
 import useMouse from '@react-hook/mouse-position';
 import { motion, Variants } from 'framer-motion';
 import type { PageProps } from 'gatsby';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight } from 'react-feather';
 import styled from 'styled-components';
 
@@ -12,9 +12,11 @@ import {
   Header,
   SEO,
   Interviews,
+  Menu,
 } from 'components';
 import Whiteout from 'components/Whiteout';
 import { InnerWrap } from 'components/common/Wraps/styled';
+import useMousePosition from 'hooks/useMousePosition';
 
 const Content = styled.div`
   position: absolute;
@@ -32,6 +34,19 @@ const IndexPage: React.FC<PageProps> = () => {
   const [cursorVariant, setCursorVariant] = useState('default');
 
   const [showWhiteout, setShowWhiteout] = useState(false);
+
+  // State of our menu
+  const [menuState, setMenuState] = useState(false);
+  // State of to display our custom cursor
+  const [cursorHovered, setCursorHovered] = useState(false);
+
+  useEffect(() => {
+    menuState
+      ? document.body.classList.add('body-lock')
+      : document.body.classList.remove('body-lock');
+  }, [menuState]);
+
+  const { x, y } = useMousePosition();
 
   const ref = useRef(null);
   const mouse = useMouse(ref, {
@@ -124,7 +139,20 @@ const IndexPage: React.FC<PageProps> = () => {
       >
         {cursorText}
       </motion.div>
-      <Header showWhiteout={showWhiteout} setShowWhiteout={setShowWhiteout} />
+      <Header
+        menuState={menuState}
+        setMenuState={setMenuState}
+        setCursorHovered={setCursorHovered}
+        showWhiteout={showWhiteout}
+        setShowWhiteout={setShowWhiteout}
+      />
+      <Menu
+        setCursorHovered={setCursorHovered}
+        menuState={menuState}
+        setMenuState={setMenuState}
+        x={x}
+        y={y}
+      />
       <Hero />
       <Content
         onMouseEnter={() => setIsDefaultCursorColor('black')}
