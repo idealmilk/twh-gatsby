@@ -1,9 +1,7 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 export const InnerWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
   width: 130rem;
   max-width: 86%;
   margin: 0 auto;

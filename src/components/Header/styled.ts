@@ -10,7 +10,7 @@ export const Container = styled(motion.div)`
   width: 100vw;
   padding: 0 10.8rem;
   font-size: 1.8rem;
-  color: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.white};
   z-index: 10000;
 
   @media (max-width: ${(props) => props.theme.breakpoints.laptop}) {
@@ -43,7 +43,7 @@ export const HeaderInner = styled.div`
     position: relative;
     margin: 0 40px;
     font-size: 2rem;
-    color: ${(props) => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.white};
     white-space: nowrap;
 
     &::after {
@@ -53,7 +53,7 @@ export const HeaderInner = styled.div`
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: ${(props) => props.theme.colors.black};
+      background-color: ${(props) => props.theme.colors.white};
       transform-origin: bottom right;
       transition: transform 0.25s ease-out;
       transform: scaleX(0);

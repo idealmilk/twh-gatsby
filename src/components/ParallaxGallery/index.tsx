@@ -1,14 +1,21 @@
 import { motion, useAnimation } from 'framer-motion';
-import React, { MouseEventHandler, useContext, useEffect } from 'react';
+import React, {
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { InnerWrap, ImgWrap } from 'components/common/Wraps/styled';
-import DisplayPic from 'images/matt.webp';
+import { ImgWrap } from 'components/common/Wraps/styled';
+import { Image } from 'components';
+import Temp1 from 'images/temp1.png';
+import Temp2 from 'images/temp2.png';
 import { LanguageContext } from 'context/LanguageContext';
 
-import { TextWrap } from './styled';
+import { Container, Gallery, TextWrap } from './styled';
 
-const AboutText = () => {
+const ParallexGallery = () => {
   const controls = useAnimation();
   const [aboutTextRef, inView] = useInView();
   const { isEnglish } = useContext(LanguageContext);
@@ -24,8 +31,17 @@ const AboutText = () => {
     hidden: { opacity: 0, y: 200 },
   };
 
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <InnerWrap>
+    <Container>
       <TextWrap
         as={motion.div}
         ref={aboutTextRef}
@@ -54,8 +70,30 @@ const AboutText = () => {
             : 'フロントエンドエクスペリエンスを構築する際には、各要素を慎重に検討し、視覚的に美しく、直感的に使用でき、まとまりのある全体感を作り上げることを追求しています。'}
         </p>
       </TextWrap>
-    </InnerWrap>
+      <Gallery>
+        <img
+          src={Temp1}
+          style={{ transform: `translateY(-${offsetY * 0.3}px)` }}
+        />
+        <img
+          src={Temp2}
+          style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
+        />
+        <img
+          src={Temp1}
+          style={{ transform: `translateY(-${offsetY * 0.3}px)` }}
+        />
+        <img
+          src={Temp2}
+          style={{ transform: `translateY(-${offsetY * 0.3}px)` }}
+        />
+        <img
+          src={Temp1}
+          style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
+        />
+      </Gallery>
+    </Container>
   );
 };
 
-export default AboutText;
+export default ParallexGallery;

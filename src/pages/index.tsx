@@ -5,8 +5,16 @@ import React, { useRef, useState } from 'react';
 import { ArrowUpRight } from 'react-feather';
 import styled from 'styled-components';
 
-import { AboutText, Hero, Footer, Header, SEO, Interviews } from 'components';
+import {
+  ParallaxGallery,
+  Hero,
+  Footer,
+  Header,
+  SEO,
+  Interviews,
+} from 'components';
 import Whiteout from 'components/Whiteout';
+import { InnerWrap } from 'components/common/Wraps/styled';
 
 const Content = styled.div`
   position: absolute;
@@ -122,8 +130,10 @@ const IndexPage: React.FC<PageProps> = () => {
         onMouseEnter={() => setIsDefaultCursorColor('black')}
         onMouseLeave={() => setIsDefaultCursorColor('white')}
       >
-        <AboutText />
-        <Interviews projectEnter={projectEnter} projectLeave={projectLeave} />
+        <InnerWrap>
+          <ParallaxGallery />
+          <Interviews projectEnter={projectEnter} projectLeave={projectLeave} />
+        </InnerWrap>
         <Footer showWhiteout={showWhiteout} setShowWhiteout={setShowWhiteout} />
       </Content>
     </main>

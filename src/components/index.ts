@@ -1,4 +1,3 @@
-export { default as AboutText } from './AboutText';
 export { default as Experience } from './Experience';
 export { default as Hero } from './Hero';
 export { default as Footer } from './Footer';
@@ -8,5 +7,6 @@ export { default as Image } from './Image';
 export { default as Interviews } from './Interviews';
 export { default as LoadingAnimation } from './LoadingAnimation';
 export { default as Navigation } from './Navigation';
+export { default as ParallaxGallery } from './ParallaxGallery';
 export { default as SEO } from './SEO';
 export { default as Whiteout } from './Whiteout';
