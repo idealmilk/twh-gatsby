@@ -24,5 +24,4 @@ export const Details = styled.div`
   justify-content: space-between;
   margin-left: 3rem;
   width: 100%;
-  background: pink;
 `;
