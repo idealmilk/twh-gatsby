@@ -20,15 +20,16 @@ export const Container = styled(motion.div)`
   }
 `;
 
-export const TextWrap = styled(motion.div)`
-  width: 40rem;
+type TextWrapType = {
+  offsetY: number;
+};
+
+export const TextWrap = styled(motion.div)<TextWrapType>`
+  width: auto;
   max-width: 90%;
   text-align: center;
 
-  h1 {
-    color: ${(props) => props.theme.colors.white};
-    font-size: 10rem;
-    line-height: 1.1;
-    font-family: serif;
+  div {
+    transform: ${(props) => `translateY(-${props.offsetY * 0.5}px)`};
   }
 `;

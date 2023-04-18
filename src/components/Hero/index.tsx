@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { LanguageContext } from 'context/LanguageContext';
 
 import { Container, TextWrap } from './styled';
+import AnimatedLetters from 'components/common/AnimatedLetters';
 
 const Hero = () => {
   const { isEnglish } = useContext(LanguageContext);
@@ -19,8 +20,18 @@ const Hero = () => {
 
   return (
     <Container as={motion.div}>
-      <TextWrap style={{ transform: `translateY(-${offsetY * 0.5}px)` }}>
-        <h1>{isEnglish ? 'Together We Heal' : 'Ser Reflejo'}</h1>
+      <TextWrap offsetY={offsetY}>
+        <AnimatedLetters
+          title={isEnglish ? 'Together We Heal' : 'Ser Reflejo'}
+          large={true}
+        />
+
+        <AnimatedLetters
+          title={
+            isEnglish ? 'women, art and resistance' : 'una juntanza para sanar'
+          }
+          large={false}
+        />
       </TextWrap>
     </Container>
   );

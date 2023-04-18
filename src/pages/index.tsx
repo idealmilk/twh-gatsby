@@ -13,6 +13,7 @@ import {
   SEO,
   Interviews,
   Menu,
+  Trailer,
 } from 'components';
 import Whiteout from 'components/Whiteout';
 import { InnerWrap } from 'components/common/Wraps/styled';
@@ -126,10 +127,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <main ref={ref}>
-      <SEO
-        title='Matthew Gilligan'
-        description='Tokyo-based Frontend Engineer'
-      />
+      <SEO title='Together We Heal' description='Women, art are resistant' />
       <Whiteout showWhiteout={showWhiteout} />
       <motion.div
         variants={variants}
@@ -160,6 +158,7 @@ const IndexPage: React.FC<PageProps> = () => {
       >
         <InnerWrap>
           <ParallaxGallery />
+          <Trailer />
           <Interviews projectEnter={projectEnter} projectLeave={projectLeave} />
         </InnerWrap>
         <Footer showWhiteout={showWhiteout} setShowWhiteout={setShowWhiteout} />

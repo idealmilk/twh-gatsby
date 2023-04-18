@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { Projects } from 'data/Projects';
 import { Close } from 'icons/icons';
 
 import { Container } from './styled';
 import List from './List';
-import Panels from './Panels';
 
 // Stagger on menu link
 const parent = {
@@ -33,65 +32,68 @@ const Menu = ({
     setMenuState(!menuState);
   };
 
+  const [windowHeight, setWindowHeight] = useState(100);
+
+  useEffect(() => {
+    if (window) {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
+
   return (
-    <Container>
-      <AnimatePresence>
-        {menuState && (
-          <>
-            <motion.div
-              initial={{ visibility: 'hidden' }}
-              exit={{
-                visibility: 'hidden',
-                transition: { delay: 1 },
-              }}
-              animate={{
-                visibility: 'visible',
-                transition: { delay: 1 },
-              }}
-              className='projects'
-            >
-              <div className='menu-title'>Products</div>
-              <div
-                onClick={() => closeMenu()}
-                onMouseEnter={() => setCursorHovered(true)}
-                onMouseLeave={() => setCursorHovered(false)}
-                className='close'
-              >
-                <Close />
-              </div>
-              <div className='menu'>
-                <div className='container'>
-                  <div className='menu-inner'>
-                    <motion.ul
-                      variants={parent}
-                      initial='initial'
-                      animate='animate'
-                      exit='exit'
-                    >
-                      {Projects.map((list: any) => (
-                        <List
-                          key={list.id}
-                          setCursorHovered={setCursorHovered}
-                          leftLineFlex={list.leftLineFlex}
-                          rightLineFlex={list.rightLineFlex}
-                          title={list.title}
-                          thumbnailPosition={list.thumbnailPosition}
-                          offset={list.offset}
-                          src={list.src}
-                          id={list.id}
-                          x={x}
-                          y={y}
-                        />
-                      ))}
-                    </motion.ul>
-                  </div>
+    <Container
+      style={{
+        transform: menuState ? 'translateY(0)' : 'translateY(-100vh)',
+      }}
+    >
+      <div className='menu-title'>Products</div>
+      <div
+        onClick={() => closeMenu()}
+        onMouseEnter={() => setCursorHovered(true)}
+        onMouseLeave={() => setCursorHovered(false)}
+        className='close'
+      >
+        <Close />
+      </div>
+
+      {menuState && (
+        <>
+          <motion.div
+            initial={{ visibility: 'hidden', height: 0 }}
+            animate={{ visibility: 'visible', height: 800 }}
+            className='projects'
+          >
+            <div className='menu'>
+              <div className='container'>
+                <div className='menu-inner'>
+                  <motion.ul
+                    variants={parent}
+                    initial='initial'
+                    animate='animate'
+                    exit='exit'
+                  >
+                    {Projects.map((list: any) => (
+                      <List
+                        key={list.id}
+                        setCursorHovered={setCursorHovered}
+                        leftLineFlex={list.leftLineFlex}
+                        rightLineFlex={list.rightLineFlex}
+                        title={list.title}
+                        thumbnailPosition={list.thumbnailPosition}
+                        offset={list.offset}
+                        src={list.src}
+                        id={list.id}
+                        x={x}
+                        y={y}
+                      />
+                    ))}
+                  </motion.ul>
                 </div>
               </div>
-            </motion.div>
-            <Panels />
-          </>
-        )}
-      </AnimatePresence>
+            </div>
+          </motion.div>
+        </>
+      )}
     </Container>
   );
 };

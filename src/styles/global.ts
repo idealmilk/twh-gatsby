@@ -193,15 +193,9 @@ const GlobalStyles = styled.createGlobalStyle`
     padding: 0 32px;
     position: relative;
     width: auto;
-    @media (min-width: 1024px) {
-      max-width: 960px;
-    }
-    @media (min-width: 1216px) {
-      max-width: 1152px;
-    }
-    @media (min-width: 1480px) {
-      max-width: 1244px;
-    }
+
+    max-width: 700px;
+
     &.fluid {
       padding: 0;
       margin: 0;

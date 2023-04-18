@@ -9,22 +9,22 @@ type GatsbyImageProps = {
 const GatsbyImageConverter = ({ src }: GatsbyImageProps) => {
   const data = useStaticQuery(graphql`
     query {
-      shoe1: file(relativePath: { eq: "shoe1.jpg" }) {
+      item1: file(relativePath: { eq: "temp1.png" }) {
         childImageSharp {
           gatsbyImageData(width: 200)
         }
       }
-      shoe2: file(relativePath: { eq: "shoe2.jpg" }) {
+      item2: file(relativePath: { eq: "temp2.png" }) {
         childImageSharp {
           gatsbyImageData(width: 200)
         }
       }
-      shoe3: file(relativePath: { eq: "shoe3.jpg" }) {
+      item3: file(relativePath: { eq: "temp1.png" }) {
         childImageSharp {
           gatsbyImageData(width: 200)
         }
       }
-      shoe4: file(relativePath: { eq: "shoe4.jpg" }) {
+      item4: file(relativePath: { eq: "temp2.png" }) {
         childImageSharp {
           gatsbyImageData(width: 200)
         }
@@ -35,13 +35,13 @@ const GatsbyImageConverter = ({ src }: GatsbyImageProps) => {
   return (
     <>
       {src === 1 ? (
-        <GatsbyImage image={data.shoe1 && getImage(data.shoe1)} alt='TWH' />
+        <GatsbyImage image={data.item1 && getImage(data.item1)} alt='TWH' />
       ) : src === 2 ? (
-        <GatsbyImage image={data.shoe2 && getImage(data.shoe2)} alt='TWH' />
+        <GatsbyImage image={data.item2 && getImage(data.item2)} alt='TWH' />
       ) : src === 3 ? (
-        <GatsbyImage image={data.shoe3 && getImage(data.shoe3)} alt='TWH' />
+        <GatsbyImage image={data.item3 && getImage(data.item3)} alt='TWH' />
       ) : (
-        <GatsbyImage image={data.shoe4 && getImage(data.shoe4)} alt='TWH' />
+        <GatsbyImage image={data.item4 && getImage(data.item4)} alt='TWH' />
       )}
     </>
   );

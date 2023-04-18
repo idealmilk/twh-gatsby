@@ -1,14 +1,19 @@
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled(motion.div)`
+export const Container = styled.div`
+  position: sticky;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10000;
+  background: ${(props) => props.theme.colors.white};
+  transition: transform 1s ease-in;
+
   .projects {
     position: fixed;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    z-index: 100000;
     overflow: hidden;
-    background: #fff;
+
     .close,
     .menu-title {
       z-index: 1000;
@@ -26,6 +31,7 @@ export const Container = styled(motion.div)`
         height: 30px;
       }
     }
+
     .menu-title {
       top: 3rem;
       left: 5.8rem;
@@ -97,7 +103,7 @@ export const Container = styled(motion.div)`
                 }
                 .floating-image {
                   pointer-events: none;
-                  width: 40rem;
+                  width: 60rem;
                   position: absolute;
                   background-size: cover;
                   background-position: 50%;
@@ -168,21 +174,16 @@ export const Container = styled(motion.div)`
   }
 
   .left-panel-background {
-    z-index: 1000000;
     height: 100vh;
     width: 50vw;
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 11;
+    z-index: 1000000;
   }
   .right-panel-background {
-    z-index: 1000000;
     height: 100vh;
     width: 50vw;
     position: absolute;
-    bottom: 0;
     right: 0;
-    z-index: 11;
+    z-index: 1000000;
   }
 `;
