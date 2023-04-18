@@ -14,6 +14,7 @@ import {
   Interviews,
   Menu,
   Trailer,
+  Showings,
 } from 'components';
 import Whiteout from 'components/Whiteout';
 import { InnerWrap } from 'components/common/Wraps/styled';
@@ -160,6 +161,7 @@ const IndexPage: React.FC<PageProps> = () => {
           <ParallaxGallery />
           <Trailer />
           <Interviews projectEnter={projectEnter} projectLeave={projectLeave} />
+          <Showings projectEnter={projectEnter} projectLeave={projectLeave} />
         </InnerWrap>
         <Footer showWhiteout={showWhiteout} setShowWhiteout={setShowWhiteout} />
       </Content>

@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { LanguageContext } from 'context/LanguageContext';
 
 import { Container, TextWrap } from './styled';
-import AnimatedLetters from 'components/common/AnimatedLetters';
+import AnimatedLetters from 'components/common/Animations/Letters';
 
 const Hero = () => {
   const { isEnglish } = useContext(LanguageContext);

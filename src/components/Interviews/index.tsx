@@ -1,4 +1,4 @@
-import { motion, useAnimation } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 import React, { MouseEventHandler, useContext, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -8,14 +8,15 @@ import Temp1 from 'images/temp1.png';
 import Temp2 from 'images/temp2.png';
 import { LanguageContext } from 'context/LanguageContext';
 
-import { Container, Card } from './styled';
+import { Container, Card, Details } from './styled';
+import AnimatedLine from 'components/common/Animations/Lines';
 
-type AboutProps = {
+type InterviewsProps = {
   projectEnter: MouseEventHandler;
   projectLeave: MouseEventHandler;
 };
 
-const AboutText = ({ projectEnter, projectLeave }: AboutProps) => {
+const Interviews = ({ projectEnter, projectLeave }: InterviewsProps) => {
   const controls = useAnimation();
   const [aboutTextRef, inView] = useInView();
 
@@ -29,16 +30,27 @@ const AboutText = ({ projectEnter, projectLeave }: AboutProps) => {
 
   return (
     <Container>
-      <ImgWrap onMouseEnter={projectEnter} onMouseLeave={projectLeave}>
-        <Card>
+      <h2>{isEnglish ? 'Get to know the lads' : 'Conozca a los chicos'}</h2>
+      <Card>
+        <ImgWrap onMouseEnter={projectEnter} onMouseLeave={projectLeave}>
           <Image image={Temp1} />
-        </Card>
-        <Card>
+        </ImgWrap>
+        <Details>
+          <AnimatedLine />
+          <AnimatedLine />
+        </Details>
+      </Card>
+      <Card>
+        <ImgWrap onMouseEnter={projectEnter} onMouseLeave={projectLeave}>
           <Image image={Temp2} />
-        </Card>
-      </ImgWrap>
+        </ImgWrap>
+        <Details>
+          <AnimatedLine />
+          <AnimatedLine />
+        </Details>
+      </Card>
     </Container>
   );
 };
 
-export default AboutText;
+export default Interviews;
