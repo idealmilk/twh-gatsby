@@ -11,12 +11,7 @@ import { LanguageContext } from 'context/LanguageContext';
 import { Container, Card, Details } from './styled';
 import AnimatedLine from 'components/common/Animations/Lines';
 
-type InterviewsProps = {
-  projectEnter: MouseEventHandler;
-  projectLeave: MouseEventHandler;
-};
-
-const Interviews = ({ projectEnter, projectLeave }: InterviewsProps) => {
+const Interviews = () => {
   const controls = useAnimation();
   const [aboutTextRef, inView] = useInView();
 
@@ -32,7 +27,7 @@ const Interviews = ({ projectEnter, projectLeave }: InterviewsProps) => {
     <Container>
       <h2>{isEnglish ? 'Get to know the lads' : 'Conozca a los chicos'}</h2>
       <Card>
-        <ImgWrap onMouseEnter={projectEnter} onMouseLeave={projectLeave}>
+        <ImgWrap>
           <Image image={Temp1} />
         </ImgWrap>
         <Details>
@@ -41,7 +36,7 @@ const Interviews = ({ projectEnter, projectLeave }: InterviewsProps) => {
         </Details>
       </Card>
       <Card>
-        <ImgWrap onMouseEnter={projectEnter} onMouseLeave={projectLeave}>
+        <ImgWrap>
           <Image image={Temp2} />
         </ImgWrap>
         <Details>

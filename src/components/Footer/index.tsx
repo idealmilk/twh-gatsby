@@ -13,12 +13,13 @@ const Footer = ({ showWhiteout, setShowWhiteout }: FooterProps) => {
   const { isEnglish, toggleLanguage } = useContext(LanguageContext);
 
   const handleLanguageToggle = () => {
-    const whiteout = document.getElementById('whiteout');
-    if (whiteout) {
-      whiteout.style.display = 'block';
-    }
+    // const whiteout = document.getElementById('whiteout');
+    // if (whiteout) {
+    //   whiteout.style.display = 'block';
+    // }
 
-    setShowWhiteout(true);
+    // setShowWhiteout(true);
+    toggleLanguage();
   };
 
   useEffect(() => {

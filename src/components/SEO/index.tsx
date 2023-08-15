@@ -16,8 +16,6 @@ const SEO = ({ title, description, article }: Props) => {
   const { defaultTitle, titleTemplate, defaultDescription, siteUrl } =
     site.siteMetadata;
 
-  console.log(DefaultImage);
-
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
