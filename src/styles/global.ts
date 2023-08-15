@@ -1,15 +1,22 @@
 import * as styled from 'styled-components';
 
+import Baskervvile from 'assets/Fonts/Baskervville-Regular.ttf';
+
 import { defaultTheme } from './theme';
 
 const typedTheme: styled.DefaultTheme = defaultTheme;
 
 const GlobalStyles = styled.createGlobalStyle`
+  @font-face {
+    font-family: 'Baskervvile';
+    src: url(${Baskervvile}) format('truetype');
+  }
+
   *,
   html,
   body {
     margin: 0;
-    font-family: serif;
+    font-family: 'Baskervvile', serif;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;

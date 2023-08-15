@@ -8,7 +8,6 @@ export { default as Image } from './Image';
 export { default as Interviews } from './Interviews';
 export { default as LoadingAnimation } from './LoadingAnimation';
 export { default as Menu } from './Menu';
-export { default as Showings } from './Showings';
 export { default as Trailer } from './Trailer';
 export { default as ParallaxGallery } from './ParallaxGallery';
 export { default as SEO } from './SEO';
